@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Trash, Check } from 'phosphor-react';
 import classNames from 'classnames/bind';
 
+import { Task } from '../../App';
+
 import styles from './Item.module.scss';
-import { Task } from '../List/List';
 
 const cx = classNames.bind(styles);
 
 interface ItemProps extends Task {
-	onCheckItem: (id: number) => void;
-	onDeleteItem: (id: number) => void;
+	onCheckItem: (id: string | number) => void;
+	onDeleteItem: (id: string | number) => void;
 };
 
 const Item: React.FC<ItemProps> = ({id, text, checked, onCheckItem, onDeleteItem}) => {

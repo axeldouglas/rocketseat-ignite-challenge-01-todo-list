@@ -1,18 +1,13 @@
 import React from 'react';
+import { Task } from '../../App';
 import Item from '../Item';
 
 import styles from './List.module.scss';
 
-export type Task = {
-	id: number;
-	text: string;
-	checked: boolean;
-};
-
 type ListProps = {
 	tasks: Task[];
-	onCheckItem: (id: number) => void;
-	onDeleteItem: (id: number) => void;
+	onCheckItem: (id: string | number) => void;
+	onDeleteItem: (id: string | number) => void;
 };
 
 const List: React.FC<ListProps> = ({ tasks, onCheckItem, onDeleteItem }) => {
