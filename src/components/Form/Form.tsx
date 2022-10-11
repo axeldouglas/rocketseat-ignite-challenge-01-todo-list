@@ -9,8 +9,8 @@ import { PlusCircle } from 'phosphor-react';
 import styles from './Form.module.scss';
 
 type FormProps = {
-    onCreateTask: (task: string) => void;
-}
+	onCreateTask: (task: string) => void;
+};
 
 const Form: React.FC<FormProps> = ({ onCreateTask }) => {
 	const [task, setTask] = useState('');
@@ -25,6 +25,8 @@ const Form: React.FC<FormProps> = ({ onCreateTask }) => {
 		setTask('');
 	};
 
+	const isNewTaskEmpty = !task.length;
+
 	return (
 		<form className={styles.form}>
 			<input
@@ -33,8 +35,14 @@ const Form: React.FC<FormProps> = ({ onCreateTask }) => {
 				placeholder='Adicione uma nova tarefa'
 				value={task}
 				onChange={handleChangeTaskText}
+				required
 			/>
-			<button type='submit' title='Create new task' onClick={handleCreateTask}>
+			<button
+				type='submit'
+				title='Create new task'
+				disabled={isNewTaskEmpty}
+				onClick={handleCreateTask}
+			>
 				Criar <PlusCircle size={16} />
 			</button>
 		</form>
