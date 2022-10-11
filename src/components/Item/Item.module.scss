@@ -1,0 +1,87 @@
+.item {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	background: var(--gray-400);
+	border: 1px solid var(--gray-400);
+	border-radius: 8px;
+	padding: 1rem;
+
+	.checkbox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.25rem;
+		height: 1.25rem;
+		border: 2px solid var(--blue-300);
+		border-radius: 50%;
+		background: transparent;
+		color: currentColor;
+		cursor: pointer;
+
+		svg {
+			position: absolute;
+			visibility: hidden;
+			max-height: 0;
+		}
+
+		&:hover {
+			background: rgba(#1e6f9f, 0.3);
+			border: 2px solid var(--blue-500);
+		}
+	}
+
+    .content {
+        flex: 1;
+        margin: 0 0.75rem;
+    }
+    
+    p {
+        font-size: .875rem;
+        color: var(--gray-100);
+        line-height: 20px;
+    }
+}
+
+.item.checked {
+	background: var(--gray-500);
+	border: 1px solid var(--gray-500);
+
+	.checkbox {
+		background: var(--purple-500);
+		border: 2px solid var(--purple-500);
+
+		svg {
+			visibility: visible;
+			max-height: none;
+		}
+
+		&:hover {
+			background: var(--purple-300);
+			border: 2px solid var(--purple-300);
+		}
+	}
+
+	p {
+		text-decoration: line-through;
+		color: var(--gray-300);
+	}
+}
+
+.item + .item {
+	margin-top: 0.75rem;
+}
+
+.deleteButton {
+	background: transparent;
+	border: 0;
+	border-radius: 4px;
+	color: var(--gray-300);
+	cursor: pointer;
+	line-height: 0;
+
+	&:hover {
+		color: var(--red-500);
+	}
+}
