@@ -1,7 +1,6 @@
 import React, {
 	ChangeEvent,
 	FormEvent,
-	InputHTMLAttributes,
 	useState,
 } from 'react';
 import { PlusCircle } from 'phosphor-react';

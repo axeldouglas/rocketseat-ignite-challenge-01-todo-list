@@ -7,19 +7,6 @@ import List from './components/List';
 
 import styles from './App.module.scss';
 
-const TASKS = [
-	{
-		id: 1,
-		text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam deleniti numquam iste.',
-		checked: false,
-	},
-	{
-		id: 2,
-		text: 'Laboriosam deleniti numquam iste. Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-		checked: false,
-	},
-];
-
 export type Task = {
 	id: string | number;
 	text: string;
@@ -27,7 +14,7 @@ export type Task = {
 };
 
 function App() {
-	const [tasks, setTasks] = useState<Task[]>(TASKS);
+	const [tasks, setTasks] = useState<Task[]>([]);
 
 	const checkItem = (id: string | number) => {
 		setTasks((current) =>
