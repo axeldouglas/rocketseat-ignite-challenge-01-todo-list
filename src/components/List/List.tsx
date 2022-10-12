@@ -1,6 +1,7 @@
 import React from 'react';
 import { Task } from '../../App';
 import Item from '../Item';
+import EmptyMessage from '../EmptyMessage';
 
 import styles from './List.module.scss';
 
@@ -30,18 +31,21 @@ const List: React.FC<ListProps> = ({ tasks, onCheckItem, onDeleteItem }) => {
 				<div>
 					<p>Concluídas</p>
 					<span>
-						{checkedTasksQuantity} de {tasksQuantity}
+						{tasksQuantity ? `${checkedTasksQuantity} de ${tasksQuantity}` : 0}
 					</span>
 				</div>
 			</header>
-			{tasks.map((task) => (
-				<Item
-					key={task.id}
-					onCheckItem={onCheckItem}
-					onDeleteItem={onDeleteItem}
-					{...task}
-				/>
-			))}
+			{!!tasksQuantity &&
+				tasks.map((task) => (
+					<Item
+						key={task.id}
+						onCheckItem={onCheckItem}
+						onDeleteItem={onDeleteItem}
+						{...task}
+					/>
+				))}
+
+			{!tasksQuantity && <EmptyMessage />}
 		</div>
 	);
 };

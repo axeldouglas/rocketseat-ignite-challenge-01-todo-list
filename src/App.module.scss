@@ -1,8 +1,18 @@
 .content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 46rem;
-    margin: 0 auto;
-    margin-top: -27px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 46rem;
+	margin: 0 auto;
+	margin-top: -27px;
+}
+
+@media (max-width: 768px) {
+	html {
+		font-size: 87.5%;
+	}
+
+    .content {
+        padding: 0 1rem;
+    }
 }
